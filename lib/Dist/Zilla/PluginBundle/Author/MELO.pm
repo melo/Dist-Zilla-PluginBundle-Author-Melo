@@ -33,6 +33,7 @@ use Dist::Zilla::Plugin::InstallRelease 0.007 ();
 use Dist::Zilla::Plugin::MetaNoIndex ();
 use Dist::Zilla::Plugin::MetaProvides::Package 1.12060501 ();
 use Dist::Zilla::Plugin::MinimumPerl 1.003                ();
+use Dist::Zilla::Plugin::Clean 0.02                       ();
 use Dist::Zilla::Plugin::NextRelease   ();
 use Dist::Zilla::Plugin::OurPkgVersion ();
 use Dist::Zilla::Plugin::PodWeaver     ();
@@ -290,6 +291,9 @@ method configure {
   $self->add_plugins(
     [InstallRelease => {install_command => $self->install_command}])
     if $self->install_command;
+
+  # cleanup afterwards
+  $self->add_plugins('Clean');
 }
 
 
