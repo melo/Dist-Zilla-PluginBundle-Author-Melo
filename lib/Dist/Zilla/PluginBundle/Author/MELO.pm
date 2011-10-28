@@ -68,6 +68,8 @@ method _default_attributes {
     skip_plugins         => [Str  => ''],
     skip_prereqs         => [Str  => ''],
     weaver_config        => [Str  => $self->_bundle_name],
+    test_pod_links       => [Bool => 1],
+    test_perl_critic     => [Bool => 0],
   };
 }
 
@@ -100,8 +102,12 @@ after configure => sub {
   # lib/Dist/Zilla/PluginBundle/Author/MELO.pm line 92, <GEN1> line 11.
   my ($self) = @_;
 
-  my $skip = $self->skip_plugins;
-  $skip &&= qr/$skip/;
+  my @plugins_to_skip = ($self->skip_plugins);
+  push @plugins_to_skip, 'Test::Perl::Critic' unless $self->test_perl_critic;
+  push @plugins_to_skip, 'Test::Pod::LinkCheck' unless $self->test_pod_links;
+
+  my $skip_re = join('|', grep {$_} @plugins_to_skip);
+  $skip_re = qr/$skip_re/;
 
   my $dynamic = $self->payload;
 
@@ -122,10 +128,11 @@ after configure => sub {
     my ($alias) = ($name =~ m#([^/]+)$#);
 
     # exclude any plugins that match 'skip_plugins'
-    if ($skip) {
+    if ($skip_re) {
 
       # match on full name or plugin class (regexp should use \b not \A)
-      if ($name =~ $skip || $class =~ $skip) {
+      if ($name =~ $skip_re || $class =~ $skip_re) {
+        $self->log("Skipping plugin $name");
         splice(@$plugins, $i, 1);
         redo;
       }
@@ -245,9 +252,10 @@ method configure {
   $self->add_plugins(
     qw(
       ReportVersions::Tiny
-      Test::Pod::No404s
       ),
   );
+
+  $self->add_plugins('Test::Pod::No404s') if $self->test_pod_links;
 
   if ($spelling_tests) {
     $self->add_plugins('Test::PodSpelling');
@@ -394,6 +402,9 @@ Possible options and their default values:
     skip_plugins         =    ; default empty; a regexp of plugin names to exclude
     skip_prereqs         =    ; default empty; corresponds to AutoPrereqs.skip
     weaver_config        = @Author::MELO
+    test_pod_links       = 1  ; Pod::Links and Pod::No404s enabled
+    test_perl_critic     = 0  ; No Perl::Critic by default
+
 
 The C<fake_release> option also respects C<$ENV{DZIL_FAKERELEASE}>.
 
