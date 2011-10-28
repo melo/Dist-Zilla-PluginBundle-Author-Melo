@@ -21,7 +21,7 @@ with qw(
 
 use Dist::Zilla::PluginBundle::Basic ();
 
-use Dist::Zilla::PluginBundle::Git 1.112510           ();
+use Dist::Zilla::PluginBundle::Git 1.112510 ();
 use Dist::Zilla::PluginBundle::TestingMania 0.014     ();
 use Dist::Zilla::Plugin::Authority 1.005              ();
 use Dist::Zilla::Plugin::Bugtracker 1.111080          ();
@@ -167,7 +167,8 @@ method configure {
     # this is just for github
     # TODO: still not sure this is a good idea - if metacpan.org used that on
     # the distribution homepage, I would include them on my dists...
-    [PruneFiles => 'PruneRepoMetaFiles' => {match => '^(README.(pod|mm?d))$'}],
+    [ PruneFiles => 'PruneRepoMetaFiles' => {match => '^(README.(pod|mm?d))$'}
+    ],
 
     # Devel::Cover db does not need to be packaged with distribution
     [PruneFiles => 'PruneDevelCoverDatabase' => {match => '^(cover_db/.+)'}],

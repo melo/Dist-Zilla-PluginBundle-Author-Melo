@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
- 
+
 {{$NEXT}}
+        * Make ReportVersions::Tiny plugin optional and off by default
+        * Cleanup after a release
 
 0.001     2011-10-28T10:58:32Z
         * Initial release
