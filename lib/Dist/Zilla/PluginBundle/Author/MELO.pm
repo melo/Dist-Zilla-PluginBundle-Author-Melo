@@ -33,9 +33,9 @@ use Dist::Zilla::Plugin::InstallRelease 0.007 ();
 use Dist::Zilla::Plugin::MetaNoIndex ();
 use Dist::Zilla::Plugin::MetaProvides::Package 1.12060501 ();
 use Dist::Zilla::Plugin::MinimumPerl 1.003                ();
-use Dist::Zilla::Plugin::NextRelease ();
+use Dist::Zilla::Plugin::NextRelease   ();
 use Dist::Zilla::Plugin::OurPkgVersion ();
-use Dist::Zilla::Plugin::PodWeaver ();
+use Dist::Zilla::Plugin::PodWeaver     ();
 use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::ReportVersions::Tiny 1.03 ();
 use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
@@ -82,9 +82,10 @@ method _generate_attribute ($key) {
       : $self->_default_attributes->{$key}[1];
     }
   );
-  }
+}
 
 {
+
   # generate attributes
   __PACKAGE__->_generate_attribute($_)
     for keys %{__PACKAGE__->_default_attributes};
@@ -92,6 +93,7 @@ method _generate_attribute ($key) {
 
 # main
 after configure => sub {
+
   # TODO: converting this to a anonymous method using Method::Signatures
   # triggers a bug
   # "my" variable $skip masks earlier declaration in same statement at
@@ -156,7 +158,8 @@ method configure {
     # this is just for github
     # TODO: still not sure this is a good idea - if metacpan.org used that on
     # the distribution homepage, I would include them on my dists...
-    [PruneFiles => 'PruneRepoMetaFiles' => {match => '^(README.(pod|mm?d))$'}],
+    [ PruneFiles => 'PruneRepoMetaFiles' => {match => '^(README.(pod|mm?d))$'}
+    ],
 
     # Devel::Cover db does not need to be packaged with distribution
     [PruneFiles => 'PruneDevelCoverDatabase' => {match => '^(cover_db/.+)'}],
@@ -343,7 +346,7 @@ I'm still working through all the kinks so don't expect nothing stable
 until this B<warning> disappears.
 
 This Bundle was forked from
-L<RWSTAUNER|Dist::Zilla::PluginBundle::Author::RWSTAUNER>.
+L<Dist::Zilla::PluginBundle::Author::RWSTAUNER>.
 
 =head1 RATIONALE
 
