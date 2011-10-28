@@ -158,8 +158,7 @@ method configure {
     # this is just for github
     # TODO: still not sure this is a good idea - if metacpan.org used that on
     # the distribution homepage, I would include them on my dists...
-    [ PruneFiles => 'PruneRepoMetaFiles' => {match => '^(README.(pod|mm?d))$'}
-    ],
+    [PruneFiles => 'PruneRepoMetaFiles' => {match => '^(README.(pod|mm?d))$'}],
 
     # Devel::Cover db does not need to be packaged with distribution
     [PruneFiles => 'PruneDevelCoverDatabase' => {match => '^(cover_db/.+)'}],
@@ -346,7 +345,7 @@ I'm still working through all the kinks so don't expect nothing stable
 until this B<warning> disappears.
 
 This Bundle was forked from
-L<Dist::Zilla::PluginBundle::Author::RWSTAUNER>.
+L<RWSTAUNER|Dist::Zilla::PluginBundle::Author::RWSTAUNER>.
 
 =head1 RATIONALE
 
@@ -526,5 +525,7 @@ This bundle is roughly equivalent to:
 * L<Dist::Zilla::Role::PluginBundle::Easy>
 * L<Dist::Zilla::Role::PluginBundle::Config::Slicer>
 * L<Pod::Weaver>
+
+=for Pod::Coverage log log_fatal
 
 =cut
