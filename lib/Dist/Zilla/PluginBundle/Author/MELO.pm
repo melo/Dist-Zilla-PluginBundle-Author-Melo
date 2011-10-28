@@ -70,6 +70,7 @@ method _default_attributes {
     weaver_config        => [Str  => $self->_bundle_name],
     test_pod_links       => [Bool => 1],
     test_perl_critic     => [Bool => 0],
+    test_report_versions => [Bool => 0],
   };
 }
 
@@ -249,13 +250,8 @@ method configure {
   );
 
   ## Testing
-  $self->add_plugins(
-    qw(
-      ReportVersions::Tiny
-      ),
-  );
-
-  $self->add_plugins('Test::Pod::No404s') if $self->test_pod_links;
+  $self->add_plugins('ReportVersions::Tiny') if $self->test_report_versions;
+  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links;
 
   if ($spelling_tests) {
     $self->add_plugins('Test::PodSpelling');
@@ -404,6 +400,7 @@ Possible options and their default values:
     weaver_config        = @Author::MELO
     test_pod_links       = 1  ; Pod::Links and Pod::No404s enabled
     test_perl_critic     = 0  ; No Perl::Critic by default
+    test_report_versions = 0  ; No ReportVersions::Tiny by default
 
 
 The C<fake_release> option also respects C<$ENV{DZIL_FAKERELEASE}>.
