@@ -529,6 +529,37 @@ This bundle is roughly equivalent to:
   [@Git]                  ; use Git bundle to commit/tag/push after releasing
   [InstallRelease]        ; install the new dist (using 'install_command')
 
+
+=head1 ENVIRONMENT
+
+We use a lot of modules and plugins and some of them can enable or
+disable features based on environment variables. I've copied some of the
+more useful ones to here.
+
+=for :list
+
+= DZIL_FAKERELEASE
+
+Enable to skip the release to CPAN as the final step of a C<< dzil release >> run.
+
+= SKIP_POD_LINKCHECK
+
+If true, the L<Test::Pod::LinkCheck> module is not used, and the Pod
+links will not be checked.
+
+See also the configuration C<test_pod_links> to disable this check
+permanently.
+
+
+= SKIP_POD_NO404S
+
+If true, the L<Test::Pod::No404s> module is not used, and any links on
+your Pod will not be checked to see if they really exist.
+
+See also the configuration C<test_pod_links> to disable this check
+permanently.
+
+
 =head1 SEE ALSO
 
 =for :list
