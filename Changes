@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
 {{$NEXT}}
+        * Added missing dependency not detected auto-magically
 
 0.003     2012-03-14T10:54:01Z
         * Add default authority to make Dist::Zilla::Plugin::Authority
