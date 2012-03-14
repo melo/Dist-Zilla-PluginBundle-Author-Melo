@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
 {{$NEXT}}
+        * Add default authority to make Dist::Zilla::Plugin::Authority
+          work with default travis-ci.org install
 
 0.002     2011-10-28T11:15:39Z
         * Make ReportVersions::Tiny plugin optional and off by default

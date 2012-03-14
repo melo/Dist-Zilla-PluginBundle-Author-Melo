@@ -61,6 +61,7 @@ method _default_attributes {
     auto_prereqs  => [Bool => 1],
     disable_tests => [Str  => ''],
     fake_release  => [Bool => $ENV{DZIL_FAKERELEASE}],
+    authority     => [Str => 'cpan:MELO'],
 
     # cpanm will choose the best place to install
     install_command      => [Str  => 'cpanm -v -i .'],
@@ -175,6 +176,7 @@ method configure {
 
     # munge files
     [ Authority => {
+        authority      => $self->authority,
         do_munging     => 1,
         do_metadata    => 1,
         locate_comment => $self->placeholder_comments,
@@ -397,6 +399,7 @@ Possible options and their default values:
     auto_prereqs         = 1  ; enable AutoPrereqs
     disable_tests        =    ; corresponds to @TestingMania.disable
     fake_release         = 0  ; if true will use FakeRelease instead of 'releaser'
+    authority            = 'cpan:MELO' ; to make D::Z::P::Authority happy
     install_command      = cpanm -v -i . (passed to InstallRelease)
     placeholder_comments = 1 ; use '# VERSION' and '# AUTHORITY' comments
     releaser             = UploadToCPAN
