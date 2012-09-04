@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
 {{$NEXT}}
+        * Add TravisYML plugin to enable http://travis-ci.org on
+          all projects
         * Add PrereqsClean plugin
         * Tweak cover_db/ exception
 

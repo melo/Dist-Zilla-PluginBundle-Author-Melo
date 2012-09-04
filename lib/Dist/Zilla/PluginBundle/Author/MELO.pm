@@ -33,6 +33,7 @@ use Dist::Zilla::Plugin::PrereqsClean  ();
 use Dist::Zilla::Plugin::ReportVersions::Tiny 1.03 ();
 use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
+use Dist::Zilla::Plugin::TravisYML   ();
 use Dist::Zilla::PluginBundle::Basic ();
 use Dist::Zilla::PluginBundle::Git 1.112510       ();
 use Dist::Zilla::PluginBundle::TestingMania 0.014 ();
@@ -273,6 +274,9 @@ method configure {
       ),
   );
 
+  ## Enable Travis CI on this project
+  $self->add_plugins('TravisYML');
+
   # release
   my $releaser = $self->fake_release ? 'FakeRelease' : $self->releaser;
   $self->add_plugins($releaser)
@@ -325,6 +329,7 @@ sub _generate_manifest_skip {
 \bpm_to_blib$
 ^MYMETA\.
 ^.DS_Store$
+^.travis.yml$
 
 EOF_MANIFEST_SKIP
     }
