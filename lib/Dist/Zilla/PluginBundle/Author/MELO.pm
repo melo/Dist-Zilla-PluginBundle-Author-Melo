@@ -15,27 +15,26 @@ with qw(
   Dist::Zilla::Role::PluginBundle::Config::Slicer
 );
 
-use Dist::Zilla::PluginBundle::Basic ();
-
-use Dist::Zilla::PluginBundle::Git 1.112510 ();
-use Dist::Zilla::PluginBundle::TestingMania 0.014     ();
 use Dist::Zilla::Plugin::Authority 1.005              ();
 use Dist::Zilla::Plugin::Bugtracker 1.111080          ();
-use Dist::Zilla::Plugin::CheckExtraTests 0.004        ();
 use Dist::Zilla::Plugin::CheckChangesHasContent 0.003 ();
+use Dist::Zilla::Plugin::CheckExtraTests 0.004        ();
+use Dist::Zilla::Plugin::Clean 0.02                       ();
 use Dist::Zilla::Plugin::Git::NextVersion ();
 use Dist::Zilla::Plugin::GithubMeta 0.26      ();
 use Dist::Zilla::Plugin::InstallRelease 0.007 ();
 use Dist::Zilla::Plugin::MetaNoIndex ();
 use Dist::Zilla::Plugin::MetaProvides::Package 1.12060501 ();
 use Dist::Zilla::Plugin::MinimumPerl 1.003                ();
-use Dist::Zilla::Plugin::Clean 0.02                       ();
 use Dist::Zilla::Plugin::NextRelease   ();
 use Dist::Zilla::Plugin::OurPkgVersion ();
 use Dist::Zilla::Plugin::PodWeaver     ();
-use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::ReportVersions::Tiny 1.03 ();
+use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
+use Dist::Zilla::PluginBundle::Basic ();
+use Dist::Zilla::PluginBundle::Git 1.112510 ();
+use Dist::Zilla::PluginBundle::TestingMania 0.014     ();
 use Pod::Weaver::PluginBundle::Author::MELO ();
 
 use List::Util qw(first);
