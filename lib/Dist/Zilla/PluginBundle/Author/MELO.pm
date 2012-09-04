@@ -169,9 +169,6 @@ method configure {
     [ PruneFiles => 'PruneRepoMetaFiles' => {match => '^(README.(pod|mm?d))$'}
     ],
 
-    # Devel::Cover db does not need to be packaged with distribution
-    [PruneFiles => 'PruneDevelCoverDatabase' => {match => '^(cover_db/.+)'}],
-
     # munge files
     [ Authority => {
         authority      => $self->authority,
@@ -325,6 +322,7 @@ sub _generate_manifest_skip {
 ^[\._]build
 ^blib/
 ^_build/
+^cover_db/
 ^Makefile$
 \bpm_to_blib$
 ^MYMETA\.
