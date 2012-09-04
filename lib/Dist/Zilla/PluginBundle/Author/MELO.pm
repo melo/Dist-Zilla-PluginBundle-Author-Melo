@@ -29,6 +29,7 @@ use Dist::Zilla::Plugin::MinimumPerl 1.003                ();
 use Dist::Zilla::Plugin::NextRelease   ();
 use Dist::Zilla::Plugin::OurPkgVersion ();
 use Dist::Zilla::Plugin::PodWeaver     ();
+use Dist::Zilla::Plugin::PrereqsClean ();
 use Dist::Zilla::Plugin::ReportVersions::Tiny 1.03 ();
 use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
@@ -290,7 +291,11 @@ method configure {
     [InstallRelease => {install_command => $self->install_command}])
     if $self->install_command;
 
-  # cleanup afterwards
+  # This should be onf of the last plugins for its phase: cleanup
+  # prereqs a bit
+  $self->add_plugins('PrereqsClean');
+
+  ## Cleanup workdir
   $self->add_plugins('Clean');
 }
 
