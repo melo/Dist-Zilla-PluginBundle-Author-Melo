@@ -19,7 +19,7 @@ use Dist::Zilla::Plugin::Authority 1.005              ();
 use Dist::Zilla::Plugin::Bugtracker 1.111080          ();
 use Dist::Zilla::Plugin::CheckChangesHasContent 0.003 ();
 use Dist::Zilla::Plugin::CheckExtraTests 0.004        ();
-use Dist::Zilla::Plugin::Clean 0.02                       ();
+use Dist::Zilla::Plugin::Clean 0.02                   ();
 use Dist::Zilla::Plugin::Git::NextVersion ();
 use Dist::Zilla::Plugin::GithubMeta 0.26      ();
 use Dist::Zilla::Plugin::InstallRelease 0.007 ();
@@ -29,13 +29,13 @@ use Dist::Zilla::Plugin::MinimumPerl 1.003                ();
 use Dist::Zilla::Plugin::NextRelease   ();
 use Dist::Zilla::Plugin::OurPkgVersion ();
 use Dist::Zilla::Plugin::PodWeaver     ();
-use Dist::Zilla::Plugin::PrereqsClean ();
+use Dist::Zilla::Plugin::PrereqsClean  ();
 use Dist::Zilla::Plugin::ReportVersions::Tiny 1.03 ();
 use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
 use Dist::Zilla::PluginBundle::Basic ();
-use Dist::Zilla::PluginBundle::Git 1.112510 ();
-use Dist::Zilla::PluginBundle::TestingMania 0.014     ();
+use Dist::Zilla::PluginBundle::Git 1.112510       ();
+use Dist::Zilla::PluginBundle::TestingMania 0.014 ();
 use Pod::Weaver::PluginBundle::Author::MELO ();
 
 use List::Util qw(first);
@@ -52,15 +52,15 @@ sub _bundle_name {
 
 # FIXME: add 'debug' option to enable ReportPhase
 
-sub mvp_multivalue_args { qw( disable_tests ) }
+sub mvp_multivalue_args {qw( disable_tests )}
 
 method _default_attributes {
   use Moose::Util::TypeConstraints 1.01;
   return {
-    auto_prereqs  => [Bool => 1],
+    auto_prereqs  => [Bool            => 1],
     disable_tests => ['ArrayRef[Str]' => []],
-    fake_release  => [Bool => $ENV{DZIL_FAKERELEASE}],
-    authority     => [Str => 'cpan:MELO'],
+    fake_release  => [Bool            => $ENV{DZIL_FAKERELEASE}],
+    authority     => [Str             => 'cpan:MELO'],
 
     # cpanm will choose the best place to install
     install_command      => [Str  => 'cpanm -v -i .'],
@@ -75,7 +75,7 @@ method _default_attributes {
   };
 }
 
-method _generate_attribute ($key) {
+method _generate_attribute($key) {
   has $key => (
     is      => 'ro',
     isa     => $self->_default_attributes->{$key}[0],
@@ -86,13 +86,12 @@ method _generate_attribute ($key) {
       : $self->_default_attributes->{$key}[1];
     }
   );
-}
+  }
 
 {
 
   # generate attributes
-  __PACKAGE__->_generate_attribute($_)
-    for keys %{__PACKAGE__->_default_attributes};
+  __PACKAGE__->_generate_attribute($_) for keys %{ __PACKAGE__->_default_attributes };
 }
 
 # main
@@ -105,7 +104,7 @@ after configure => sub {
   my ($self) = @_;
 
   my @plugins_to_skip = ($self->skip_plugins);
-  push @plugins_to_skip, 'Test::Perl::Critic' unless $self->test_perl_critic;
+  push @plugins_to_skip, 'Test::Perl::Critic'   unless $self->test_perl_critic;
   push @plugins_to_skip, 'Test::Pod::LinkCheck' unless $self->test_pod_links;
 
   my $skip_re = join('|', grep {$_} @plugins_to_skip);
@@ -167,8 +166,7 @@ method configure {
     # this is just for github
     # TODO: still not sure this is a good idea - if metacpan.org used that on
     # the distribution homepage, I would include them on my dists...
-    [ PruneFiles => 'PruneRepoMetaFiles' => {match => '^(README.(pod|mm?d))$'}
-    ],
+    [PruneFiles => 'PruneRepoMetaFiles' => { match => '^(README.(pod|mm?d))$' }],
 
     # munge files
     [ Authority => {
@@ -190,7 +188,7 @@ method configure {
     ($self->placeholder_comments ? 'OurPkgVersion' : 'PkgVersion'),
 
     # Weaver
-    ['PodWeaver' => {config_plugin => $self->weaver_config}],
+    ['PodWeaver' => { config_plugin => $self->weaver_config }],
 
     # generated distribution files
     qw(
@@ -209,8 +207,7 @@ method configure {
     'GithubMeta',
   );
 
-  $self->add_plugins(
-    [AutoPrereqs => $self->config_slice({skip_prereqs => 'skip'})])
+  $self->add_plugins([AutoPrereqs => $self->config_slice({ skip_prereqs => 'skip' })])
     if $self->auto_prereqs;
 
   $self->add_plugins(
@@ -223,7 +220,7 @@ method configure {
       }
     ],
     [    # AFTER MetaNoIndex
-      'MetaProvides::Package' => {meta_noindex => 1}
+      'MetaProvides::Package' => { meta_noindex => 1 }
     ],
 
     qw(
@@ -257,13 +254,10 @@ method configure {
     $self->add_plugins('Test::PodSpelling');
   }
   else {
-    $self->log(
-      "Test::PodSpelling Plugin failed to load.  Pleese dunt mayke ani misteaks.\n"
-    );
+    $self->log("Test::PodSpelling Plugin failed to load.  Pleese dunt mayke ani misteaks.\n");
   }
 
-  $self->add_bundle(
-    '@TestingMania' => $self->config_slice({disable_tests => 'disable'}));
+  $self->add_bundle('@TestingMania' => $self->config_slice({ disable_tests => 'disable' }));
 
   $self->add_plugins(
 
@@ -287,8 +281,7 @@ method configure {
   # Git power
   $self->add_bundle('@Git');
 
-  $self->add_plugins(
-    [InstallRelease => {install_command => $self->install_command}])
+  $self->add_plugins([InstallRelease => { install_command => $self->install_command }])
     if $self->install_command;
 
   # This should be onf of the last plugins for its phase: cleanup
