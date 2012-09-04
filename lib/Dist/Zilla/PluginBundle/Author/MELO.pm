@@ -55,11 +55,14 @@ sub _bundle_name {
 }
 
 # FIXME: add 'debug' option to enable ReportPhase
+
+sub mvp_multivalue_args { qw( disable_tests ) }
+
 method _default_attributes {
   use Moose::Util::TypeConstraints 1.01;
   return {
     auto_prereqs  => [Bool => 1],
-    disable_tests => [Str  => ''],
+    disable_tests => ['ArrayRef[Str]' => []],
     fake_release  => [Bool => $ENV{DZIL_FAKERELEASE}],
     authority     => [Str => 'cpan:MELO'],
 
@@ -573,6 +576,6 @@ permanently.
 * L<Dist::Zilla::Role::PluginBundle::Config::Slicer>
 * L<Pod::Weaver>
 
-=for Pod::Coverage log log_fatal
+=for Pod::Coverage log log_fatal mvp_multivalue_args
 
 =cut

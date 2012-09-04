@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
 {{$NEXT}}
+        * disable_tests accepts multiple values, in line with
+          @TestingMania behaviour
 
 0.004     2012-05-11T11:25:40Z
         * Added missing dependency not detected auto-magically
