@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
 {{$NEXT}}
+        * Add Git::CommitBuild with both per-build and per-release
+          extra branches
         * Add PrereqsClean plugin
         * Tweak cover_db/ exception
 

@@ -278,8 +278,24 @@ method configure {
   $self->add_plugins($releaser)
     if $releaser;
 
-  # Git power
-  $self->add_bundle('@Git');
+  #### Git power
+  $self->add_bundle(
+    '@Git' => { push_to => ['origin', 'origin build/master:build/master', 'origin releases:releases'] });
+
+  ## Commit build and releases to a separate branch
+  $self->add_plugins(
+    [ 'Git::CommitBuild' => {
+        branch  => 'build/%b',
+        message => 'Build results of %h (on %b)',
+
+        release_branch  => 'releases',
+        release_message => 'Release v%v (based on %h)',
+      }
+    ]
+  );
+
+  ## Make sure we push all the right branches
+
 
   $self->add_plugins([InstallRelease => { install_command => $self->install_command }])
     if $self->install_command;
