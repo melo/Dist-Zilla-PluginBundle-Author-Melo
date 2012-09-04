@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
 {{$NEXT}}
+
+0.005     2012-09-04T11:19:08Z
         * disable_tests accepts multiple values, in line with
           @TestingMania behaviour
 
