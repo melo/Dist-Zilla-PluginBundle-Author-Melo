@@ -1,12 +1,8 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
-BEGIN {
-
-  # VERSION
-  # AUTHORITY
-}
-
 # ABSTRACT: Be like MELO when you build your dists
+# VERSION
+# AUTHORITY
 
 use strict;
 use Moose;
