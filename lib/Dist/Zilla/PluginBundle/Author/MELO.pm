@@ -365,7 +365,7 @@ before_install:
   - "cpanm --quiet --notest --installdeps Dist::Zilla::PluginBundle::Author::MELO"
   - "cpanm --quiet --notest Dist::Zilla::PluginBundle::Author::MELO"
 install: "dzil authordeps | xargs cpanm --quiet --notest && dzil listdeps | xargs cpanm --quiet --notest"
-script: "dzil test --release"
+script: "dzil test --release && dzil xtest"
 EOF_TRAVIS_CFG
     }
   ];
