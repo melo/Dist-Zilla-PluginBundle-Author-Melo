@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
-0.008     2012-09-05T00:19:40Z
+0.008     2012-09-05T00:21:57Z
 
 0.007     2012-09-05T00:15:16Z
         * Fix Git::CommitBuild setup
