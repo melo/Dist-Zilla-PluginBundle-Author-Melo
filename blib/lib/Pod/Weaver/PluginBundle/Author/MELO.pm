@@ -2,7 +2,7 @@ package Pod::Weaver::PluginBundle::Author::MELO;
 
 BEGIN {
 
-  our $VERSION = '0.009'; # VERSION
+  our $VERSION = '0.010'; # VERSION
   our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 }
 
@@ -134,7 +134,7 @@ Pod::Weaver::PluginBundle::Author::MELO - MELO's Pod::Weaver config
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 

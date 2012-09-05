@@ -1,7 +1,7 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
-# ABSTRACT: Be like MELO when you build your dists
-our $VERSION = '0.009'; # VERSION
+# ABSTRACT: MELO is a lazy, this are his rules
+our $VERSION = '0.010'; # VERSION
 our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 
 use strict;
@@ -157,11 +157,10 @@ method configure {
 
     # gather and prune
     $self->_generate_manifest_skip,
-    qw(
-      GatherDir
-      PruneCruft
-      ManifestSkip
-      ),
+    $self->_generate_travis_yml,
+    'GatherDir',
+    [PruneCruft => { except => ['\.travis.yml'] }],
+    'ManifestSkip',
 
     # this is just for github
     # TODO: still not sure this is a good idea - if metacpan.org used that on
@@ -319,7 +318,7 @@ foreach my $method (qw(log log_fatal)) {
   }
 }
 
-sub _generate_manifest_skip {
+method _generate_manifest_skip {
 
   # include a default MANIFEST.SKIP for the tests and/or historical reasons
   return [
@@ -346,6 +345,32 @@ EOF_MANIFEST_SKIP
   ];
 }
 
+method _generate_travis_yml {
+
+  # include a .travis.yml: required if we want to smoke our build/* and
+  # releases branches
+  return [
+    GenerateFile => 'GenerateTravisCfg' => {
+      filename => '.travis.yml',
+      content  => <<EOF_TRAVIS_CFG,
+language: perl
+perl:
+  - "5.16"
+  - "5.14"
+  - "5.12"
+  - "5.10"
+before_install:
+  - "git config --global github.user melo"
+  - "cpanm --quiet --notest Dist::Zilla"
+  - "cpanm --quiet --notest --installdeps Dist::Zilla::PluginBundle::Author::MELO"
+  - "cpanm --quiet --notest Dist::Zilla::PluginBundle::Author::MELO"
+install: "dzil authordeps | xargs cpanm --quiet --notest && dzil listdeps | xargs cpanm --quiet --notest"
+script: "dzil test && dzil xtest"
+EOF_TRAVIS_CFG
+    }
+  ];
+}
+
 no Moose;
 __PACKAGE__->meta->make_immutable;
 1;
@@ -361,11 +386,11 @@ cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 NAME
 
-Dist::Zilla::PluginBundle::Author::MELO - Be like MELO when you build your dists
+Dist::Zilla::PluginBundle::Author::MELO - MELO is a lazy, this are his rules
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 

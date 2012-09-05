@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Be like MELO when you build your dists",
+  "ABSTRACT" => "MELO is a lazy, this are his rules",
   "AUTHOR" => "Pedro Melo <melo\@simplicidade.org>",
   "BUILD_REQUIRES" => {
     "File::Temp" => 0,
@@ -56,7 +56,7 @@ my %WriteMakefileArgs = (
     "Pod::Weaver::Section::Support" => "1.001",
     "Test::CPAN::Meta::JSON" => 0
   },
-  "VERSION" => "0.009",
+  "VERSION" => "0.010",
   "test" => {
     "TESTS" => "t/*.t"
   }
