@@ -128,6 +128,11 @@
             "version" : "4.300021"
          },
          {
+            "class" : "Dist::Zilla::Plugin::GenerateFile",
+            "name" : "@Author::MELO/GenerateTravisCfg",
+            "version" : "4.300021"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::GatherDir",
             "name" : "@Author::MELO/GatherDir",
             "version" : "4.300021"
@@ -145,11 +150,6 @@
          {
             "class" : "Dist::Zilla::Plugin::PruneFiles",
             "name" : "@Author::MELO/PruneRepoMetaFiles",
-            "version" : "4.300021"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::GenerateFile",
-            "name" : "@Author::MELO/GenerateTravisCfg",
             "version" : "4.300021"
          },
          {
