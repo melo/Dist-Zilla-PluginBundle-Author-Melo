@@ -157,7 +157,6 @@ method configure {
 
     # gather and prune
     $self->_generate_manifest_skip,
-    $self->_generate_travis_yml,
     qw(
       GatherDir
       PruneCruft
@@ -168,6 +167,10 @@ method configure {
     # TODO: still not sure this is a good idea - if metacpan.org used that on
     # the distribution homepage, I would include them on my dists...
     [PruneFiles => 'PruneRepoMetaFiles' => { match => '^(README.(pod|mm?d))$' }],
+
+    ## Generate a .travis.yml file - make sure it comes after all the
+    ## Prune* plugins those usually remove .dotfiles
+    $self->_generate_travis_yml,
 
     # munge files
     [ Authority => {
