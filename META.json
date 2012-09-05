@@ -349,8 +349,8 @@
             "version" : "4.300021"
          },
          {
-            "class" : "Dist::Zilla::Plugin::UploadToCPAN",
-            "name" : "@Author::MELO/UploadToCPAN",
+            "class" : "Dist::Zilla::Plugin::FakeRelease",
+            "name" : "@Author::MELO/FakeRelease",
             "version" : "4.300021"
          },
          {
