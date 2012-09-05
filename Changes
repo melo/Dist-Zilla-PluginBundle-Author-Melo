@@ -1,9 +1,11 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
 {{$NEXT}}
+        * Will the real Git::CommitBuild config work this time?
 
 0.007     2012-09-05T00:15:16Z
         * Fix Git::CommitBuild setup
+        * Didn't make it to CPAN, botched up release phase
 
 0.006     2012-09-04T23:59:04Z
         * New release to fix timestamp problems on the previous dist
