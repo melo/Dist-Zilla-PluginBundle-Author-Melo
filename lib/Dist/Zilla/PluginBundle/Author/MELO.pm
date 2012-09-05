@@ -1,7 +1,7 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
 # ABSTRACT: Be like MELO when you build your dists
-our $VERSION = '0.009'; # VERSION
+our $VERSION = '0.010'; # VERSION
 our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 
 use strict;
@@ -365,7 +365,7 @@ Dist::Zilla::PluginBundle::Author::MELO - Be like MELO when you build your dists
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 
