@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
-# ABSTRACT: Be like MELO when you build your dists
+# ABSTRACT: MELO is a lazy, this are his rules
 # VERSION
 # AUTHORITY
 

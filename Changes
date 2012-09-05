@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
 {{$NEXT}}
+        * Updated abstract to the real truth about this module
         * Generate a .travis.yml file for all projects using this bundle
 
 0.009     2012-09-05T00:36:10Z
