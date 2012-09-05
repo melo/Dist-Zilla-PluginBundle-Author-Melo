@@ -200,10 +200,6 @@ x_Dist_Zilla:
       name: '@Author::MELO/@TestingMania/Test::UnusedVars'
       version: 2.000003
     -
-      class: Dist::Zilla::Plugin::Test::Portability
-      name: '@Author::MELO/@TestingMania/Test::Portability'
-      version: 2.000003
-    -
       class: Dist::Zilla::Plugin::Test::Version
       name: '@Author::MELO/@TestingMania/Test::Version'
       version: 0.002004
