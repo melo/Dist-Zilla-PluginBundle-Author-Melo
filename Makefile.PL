@@ -56,7 +56,7 @@ my %WriteMakefileArgs = (
     "Pod::Weaver::Section::Support" => "1.001",
     "Test::CPAN::Meta::JSON" => 0
   },
-  "VERSION" => "0.008",
+  "VERSION" => "0.009",
   "test" => {
     "TESTS" => "t/*.t"
   }

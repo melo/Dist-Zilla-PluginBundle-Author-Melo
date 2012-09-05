@@ -30,10 +30,10 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::Author::MELO:
     file: lib/Dist/Zilla/PluginBundle/Author/MELO.pm
-    version: 0.008
+    version: 0.009
   Pod::Weaver::PluginBundle::Author::MELO:
     file: lib/Pod/Weaver/PluginBundle/Author/MELO.pm
-    version: 0.008
+    version: 0.009
 requires:
   Dist::Zilla: 4.300002
   Dist::Zilla::Plugin::Authority: 1.005
@@ -72,7 +72,7 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-Author-MELO
   homepage: https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo
   repository: https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo.git
-version: 0.008
+version: 0.009
 x_Dist_Zilla:
   plugins:
     -
@@ -272,6 +272,10 @@ x_Dist_Zilla:
       name: '@Author::MELO/UploadToCPAN'
       version: 4.300021
     -
+      class: Dist::Zilla::Plugin::Git::CommitBuild
+      name: '@Author::MELO/Git::CommitBuild'
+      version: 1.122460
+    -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@Author::MELO/@Git/Check'
       version: 1.122460
@@ -286,10 +290,6 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Push
       name: '@Author::MELO/@Git/Push'
-      version: 1.122460
-    -
-      class: Dist::Zilla::Plugin::Git::CommitBuild
-      name: '@Author::MELO/Git::CommitBuild'
       version: 1.122460
     -
       class: Dist::Zilla::Plugin::InstallRelease

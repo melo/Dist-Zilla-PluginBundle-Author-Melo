@@ -1,7 +1,7 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
 # ABSTRACT: Be like MELO when you build your dists
-our $VERSION = '0.008'; # VERSION
+our $VERSION = '0.009'; # VERSION
 our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 
 use strict;
@@ -279,8 +279,6 @@ method configure {
     if $releaser;
 
   #### Git power
-  $self->add_bundle(
-    '@Git' => { push_to => ['origin', 'origin build/master:build/master', 'origin releases:releases'] });
 
   ## Commit build and releases to a separate branch
   $self->add_plugins(
@@ -295,7 +293,8 @@ method configure {
   );
 
   ## Make sure we push all the right branches
-
+  $self->add_bundle(
+    '@Git' => { push_to => ['origin', 'origin build/master:build/master', 'origin releases:releases'] });
 
   $self->add_plugins([InstallRelease => { install_command => $self->install_command }])
     if $self->install_command;
@@ -366,7 +365,7 @@ Dist::Zilla::PluginBundle::Author::MELO - Be like MELO when you build your dists
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 SYNOPSIS
 
