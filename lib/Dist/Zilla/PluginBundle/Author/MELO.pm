@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
-# ABSTRACT: Be like MELO when you build your dists
+# ABSTRACT: MELO is a lazy, this are his rules
 our $VERSION = '0.010'; # VERSION
 our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 
@@ -386,7 +386,7 @@ cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 NAME
 
-Dist::Zilla::PluginBundle::Author::MELO - Be like MELO when you build your dists
+Dist::Zilla::PluginBundle::Author::MELO - MELO is a lazy, this are his rules
 
 =head1 VERSION
 
