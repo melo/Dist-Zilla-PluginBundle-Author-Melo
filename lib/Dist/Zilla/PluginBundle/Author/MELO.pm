@@ -157,6 +157,7 @@ method configure {
 
     # gather and prune
     $self->_generate_manifest_skip,
+    $self->_generate_travis_yml,
     qw(
       GatherDir
       PruneCruft
@@ -319,7 +320,7 @@ foreach my $method (qw(log log_fatal)) {
   }
 }
 
-sub _generate_manifest_skip {
+method _generate_manifest_skip {
 
   # include a default MANIFEST.SKIP for the tests and/or historical reasons
   return [
@@ -342,6 +343,32 @@ sub _generate_manifest_skip {
 ^.DS_Store$
 
 EOF_MANIFEST_SKIP
+    }
+  ];
+}
+
+method _generate_travis_yml {
+
+  # include a .travis.yml: required if we want to smoke our build/* and
+  # releases branches
+  return [
+    GenerateFile => 'GenerateTravisCfg' => {
+      filename => '.travis.yml',
+      content  => <<EOF_TRAVIS_CFG,
+language: perl
+perl:
+  - "5.16"
+  - "5.14"
+  - "5.12"
+  - "5.10"
+before_install:
+  - "git config --global github.user melo"
+  - "cpanm --quiet --notest Dist::Zilla"
+  - "cpanm --quiet --notest --installdeps Dist::Zilla::PluginBundle::Author::MELO"
+  - "cpanm --quiet --notest Dist::Zilla::PluginBundle::Author::MELO"
+install: "dzil authordeps | xargs cpanm --quiet --notest && dzil listdeps | xargs cpanm --quiet --notest"
+script: "dzil test --release"
+EOF_TRAVIS_CFG
     }
   ];
 }
