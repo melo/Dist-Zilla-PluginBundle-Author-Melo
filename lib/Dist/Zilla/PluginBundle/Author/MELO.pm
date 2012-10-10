@@ -327,6 +327,7 @@ method _generate_manifest_skip {
       is_template => 1,
       content     => <<'EOF_MANIFEST_SKIP',
 
+^.travis.yml$
 \B\.git\b
 \B\.gitignore$
 ^.prove/
