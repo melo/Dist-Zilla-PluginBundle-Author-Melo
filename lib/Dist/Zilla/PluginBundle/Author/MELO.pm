@@ -327,7 +327,6 @@ method _generate_manifest_skip {
       is_template => 1,
       content     => <<'EOF_MANIFEST_SKIP',
 
-^.travis.yml$
 \B\.git\b
 \B\.gitignore$
 ^.prove/
@@ -360,13 +359,6 @@ perl:
   - "5.14"
   - "5.12"
   - "5.10"
-before_install:
-  - "git config --global github.user melo"
-  - "cpanm --quiet --notest Dist::Zilla"
-  - "cpanm --quiet --notest --installdeps Dist::Zilla::PluginBundle::Author::MELO"
-  - "cpanm --quiet --notest Dist::Zilla::PluginBundle::Author::MELO"
-install: "dzil authordeps | xargs cpanm --quiet --notest && dzil listdeps | xargs cpanm --quiet --notest"
-script: "dzil test && dzil xtest"
 EOF_TRAVIS_CFG
     }
   ];
