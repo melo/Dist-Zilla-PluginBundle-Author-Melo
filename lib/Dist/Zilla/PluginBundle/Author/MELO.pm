@@ -1,7 +1,7 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
-# ABSTRACT: MELO is a lazy, this are his rules
-our $VERSION = '0.010'; # VERSION
+# ABSTRACT: MELO is lazy, this are his rules
+our $VERSION = '0.011'; # VERSION
 our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 
 use strict;
@@ -247,7 +247,7 @@ method configure {
 
   ## Testing
   $self->add_plugins('ReportVersions::Tiny') if $self->test_report_versions;
-  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links;
+  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links and !$ENV{FIRST_RELEASE};
 
   if ($spelling_tests) {
     $self->add_plugins('Test::PodSpelling');
@@ -359,13 +359,6 @@ perl:
   - "5.14"
   - "5.12"
   - "5.10"
-before_install:
-  - "git config --global github.user melo"
-  - "cpanm --quiet --notest Dist::Zilla"
-  - "cpanm --quiet --notest --installdeps Dist::Zilla::PluginBundle::Author::MELO"
-  - "cpanm --quiet --notest Dist::Zilla::PluginBundle::Author::MELO"
-install: "dzil authordeps | xargs cpanm --quiet --notest && dzil listdeps | xargs cpanm --quiet --notest"
-script: "dzil test && dzil xtest"
 EOF_TRAVIS_CFG
     }
   ];
@@ -386,11 +379,11 @@ cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 NAME
 
-Dist::Zilla::PluginBundle::Author::MELO - MELO is a lazy, this are his rules
+Dist::Zilla::PluginBundle::Author::MELO - MELO is lazy, this are his rules
 
 =head1 VERSION
 
-version 0.010
+version 0.011
 
 =head1 SYNOPSIS
 

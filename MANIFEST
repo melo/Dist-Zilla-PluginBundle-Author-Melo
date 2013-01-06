@@ -1,5 +1,4 @@
 .travis.yml
-Changes
 LICENSE
 MANIFEST
 MANIFEST.SKIP
@@ -7,6 +6,7 @@ META.json
 META.yml
 Makefile.PL
 README
+changes
 dist.ini
 lib/Dist/Zilla/PluginBundle/Author/MELO.pm
 lib/Pod/Weaver/PluginBundle/Author/MELO.pm
