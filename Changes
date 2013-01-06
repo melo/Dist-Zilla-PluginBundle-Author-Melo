@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
-0.011     2013-01-06T15:47:05Z
+0.011     2013-01-06T15:49:13Z
         * Generate a simpler .travis.yml
         * Make sure .travis.yml is not excluded by MANIFEST.SKIP
         * Add support for DZIL_FIRST_RELEASE ENV
