@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
-# ABSTRACT: MELO is a lazy, this are his rules
+# ABSTRACT: MELO is lazy, this are his rules
 # VERSION
 # AUTHORITY
 
