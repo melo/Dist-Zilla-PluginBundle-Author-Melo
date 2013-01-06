@@ -247,7 +247,7 @@ method configure {
 
   ## Testing
   $self->add_plugins('ReportVersions::Tiny') if $self->test_report_versions;
-  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links;
+  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links and !$ENV{FIRST_RELEASE};
 
   if ($spelling_tests) {
     $self->add_plugins('Test::PodSpelling');
