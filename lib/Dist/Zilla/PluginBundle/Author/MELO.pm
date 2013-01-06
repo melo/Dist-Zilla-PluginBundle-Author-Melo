@@ -472,7 +472,7 @@ and then you can add it yourself:
     [MetaNoIndex]
     directory = one-dir
     directory = another-dir
-    
+
     [@Author::MELO]
     skip_plugins = MetaNoIndex
 
