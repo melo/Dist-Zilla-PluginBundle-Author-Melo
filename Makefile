@@ -1,7 +1,7 @@
 # This Makefile is for the Dist::Zilla::PluginBundle::Author::MELO extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 6.62 (Revision: 66200) from the contents of
+# 6.64 (Revision: 66400) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
@@ -11,7 +11,7 @@
 
 #   MakeMaker Parameters:
 
-#     ABSTRACT => q[MELO is a lazy, this are his rules]
+#     ABSTRACT => q[MELO is lazy, this are his rules]
 #     AUTHOR => [q[Pedro Melo <melo@simplicidade.org>]]
 #     BUILD_REQUIRES => { Test::More=>q[0.98], File::Temp=>q[0] }
 #     CONFIGURE_REQUIRES => { ExtUtils::MakeMaker=>q[6.30] }
@@ -20,7 +20,8 @@
 #     LICENSE => q[artistic_2]
 #     NAME => q[Dist::Zilla::PluginBundle::Author::MELO]
 #     PREREQ_PM => { Dist::Zilla::Plugin::MinimumPerl=>q[1.003], Dist::Zilla::PluginBundle::TestingMania=>q[0.014], Pod::Elemental=>q[0.102360], Pod::Weaver::Plugin::WikiDoc=>q[0.093002], Dist::Zilla::Plugin::MetaProvides::Package=>q[1.12060501], Dist::Zilla::Plugin::GithubMeta=>q[0.26], List::Util=>q[0], Dist::Zilla::Plugin::PrereqsClean=>q[0], Dist::Zilla::Plugin::ReportVersions::Tiny=>q[1.03], Pod::Elemental::Transformer::List=>q[0], Dist::Zilla::Plugin::Repository=>q[0.18], Dist::Zilla::Plugin::Bugtracker=>q[1.111080], Dist::Zilla::Plugin::Git::NextVersion=>q[0], Test::More=>q[0.98], Dist::Zilla::Plugin::CheckExtraTests=>q[0.004], Test::CPAN::Meta::JSON=>q[0], Pod::Weaver::Section::Support=>q[1.001], File::Temp=>q[0], Dist::Zilla::Plugin::Test::Pod::No404s=>q[1.001], Dist::Zilla::Plugin::Clean=>q[0.02], Dist::Zilla::Plugin::PodWeaver=>q[0], Method::Signatures=>q[20111020], Dist::Zilla::Plugin::OurPkgVersion=>q[0], Pod::Weaver::Plugin::StopWords=>q[1.001005], Pod::Weaver=>q[3.101633], Dist::Zilla::Plugin::CheckChangesHasContent=>q[0.003], Moose=>q[1.01], Dist::Zilla::Plugin::Bootstrap::lib=>q[0.01023600], Dist::Zilla::Plugin::Authority=>q[1.005], Dist::Zilla::Plugin::InstallRelease=>q[0.007], Dist::Zilla=>q[4.300002], Dist::Zilla::PluginBundle::Git=>q[1.112510], Dist::Zilla::Role::PluginBundle::Config::Slicer=>q[0], Pod::Weaver::Plugin::Encoding=>q[0] }
-#     VERSION => q[0.010]
+#     TEST_REQUIRES => {  }
+#     VERSION => q[0.011]
 #     test => { TESTS=>q[t/*.t] }
 
 # --- MakeMaker post_initialize section:
@@ -60,11 +61,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Dist::Zilla::PluginBundle::Author::MELO
 NAME_SYM = Dist_Zilla_PluginBundle_Author_MELO
-VERSION = 0.010
+VERSION = 0.011
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_010
+VERSION_SYM = 0_011
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.010
+XS_VERSION = 0.011
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -140,8 +141,8 @@ PERM_RW = 644
 PERM_RWX = 755
 
 MAKEMAKER   = /Users/melo/perl5/perlbrew/perls/perl-5.14.2/lib/5.14.2/ExtUtils/MakeMaker.pm
-MM_VERSION  = 6.62
-MM_REVISION = 66200
+MM_VERSION  = 6.64
+MM_REVISION = 66400
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
@@ -197,13 +198,13 @@ PM_TO_BLIB = lib/Dist/Zilla/PluginBundle/Author/MELO.pm \
 
 
 # --- MakeMaker platform_constants section:
-MM_Unix_VERSION = 6.62
+MM_Unix_VERSION = 6.64
 PERL_MALLOC_DEF = -DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc
 
 
 # --- MakeMaker tool_autosplit section:
 # Usage: $(AUTOSPLITFILE) FileToSplit AutoDirToSplitInto
-AUTOSPLITFILE = $(ABSPERLRUN)  -e 'use AutoSplit;  autosplit($$ARGV[0], $$ARGV[1], 0, 1, 1)' --
+AUTOSPLITFILE = $(ABSPERLRUN)  -e 'use AutoSplit;  autosplit($$$$ARGV[0], $$$$ARGV[1], 0, 1, 1)' --
 
 
 
@@ -262,7 +263,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Dist-Zilla-PluginBundle-Author-MELO
-DISTVNAME = Dist-Zilla-PluginBundle-Author-MELO-0.010
+DISTVNAME = Dist-Zilla-PluginBundle-Author-MELO-0.011
 
 
 # --- MakeMaker macro section:
@@ -485,7 +486,7 @@ realclean purge ::  clean realclean_subdirs
 metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
 	$(NOECHO) $(ECHO) '---' > META_new.yml
-	$(NOECHO) $(ECHO) 'abstract: '\''MELO is a lazy, this are his rules'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) 'abstract: '\''MELO is lazy, this are his rules'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'author:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  - '\''Pedro Melo <melo@simplicidade.org>'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'build_requires:' >> META_new.yml
@@ -494,7 +495,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) 'configure_requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  ExtUtils::MakeMaker: 6.30' >> META_new.yml
 	$(NOECHO) $(ECHO) 'dynamic_config: 1' >> META_new.yml
-	$(NOECHO) $(ECHO) 'generated_by: '\''ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.120921'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) 'generated_by: '\''ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.120921'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'license: artistic_2' >> META_new.yml
 	$(NOECHO) $(ECHO) 'meta-spec:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  url: http://module-build.sourceforge.net/META-spec-v1.4.html' >> META_new.yml
@@ -537,16 +538,16 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '  Pod::Weaver::Plugin::WikiDoc: 0.093002' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Pod::Weaver::Section::Support: 1.001' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Test::CPAN::Meta::JSON: 0' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: 0.010' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: 0.011' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
-	$(NOECHO) $(ECHO) '   "abstract" : "MELO is a lazy, this are his rules",' >> META_new.json
+	$(NOECHO) $(ECHO) '   "abstract" : "MELO is lazy, this are his rules",' >> META_new.json
 	$(NOECHO) $(ECHO) '   "author" : [' >> META_new.json
 	$(NOECHO) $(ECHO) '      "Pedro Melo <melo@simplicidade.org>"' >> META_new.json
 	$(NOECHO) $(ECHO) '   ],' >> META_new.json
 	$(NOECHO) $(ECHO) '   "dynamic_config" : 1,' >> META_new.json
-	$(NOECHO) $(ECHO) '   "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.120921",' >> META_new.json
+	$(NOECHO) $(ECHO) '   "generated_by" : "ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.120921",' >> META_new.json
 	$(NOECHO) $(ECHO) '   "license" : [' >> META_new.json
 	$(NOECHO) $(ECHO) '      "artistic_2"' >> META_new.json
 	$(NOECHO) $(ECHO) '   ],' >> META_new.json
@@ -611,7 +612,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
 	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.010"' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "0.011"' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
@@ -707,17 +708,17 @@ ci :
 distmeta : create_distdir metafile
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'exit unless -e q{META.yml};' \
 	  -e 'eval { maniadd({q{META.yml} => q{Module YAML meta-data (added by MakeMaker)}}) }' \
-	  -e '    or print "Could not add META.yml to MANIFEST: $${'\''@'\''}\n"' --
+	  -e '    or print "Could not add META.yml to MANIFEST: $$$${'\''@'\''}\n"' --
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'exit unless -f q{META.json};' \
 	  -e 'eval { maniadd({q{META.json} => q{Module JSON meta-data (added by MakeMaker)}}) }' \
-	  -e '    or print "Could not add META.json to MANIFEST: $${'\''@'\''}\n"' --
+	  -e '    or print "Could not add META.json to MANIFEST: $$$${'\''@'\''}\n"' --
 
 
 
 # --- MakeMaker distsignature section:
 distsignature : create_distdir
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{SIGNATURE} => q{Public-key signature (added by MakeMaker)}}) } ' \
-	  -e '    or print "Could not add SIGNATURE to MANIFEST: $${'\''@'\''}\n"' --
+	  -e '    or print "Could not add SIGNATURE to MANIFEST: $$$${'\''@'\''}\n"' --
 	$(NOECHO) cd $(DISTVNAME) && $(TOUCH) SIGNATURE
 	cd $(DISTVNAME) && cpansign -s
 
@@ -907,8 +908,8 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0.010">' > $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <ABSTRACT>MELO is a lazy, this are his rules</ABSTRACT>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="$(VERSION)">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '    <ABSTRACT>MELO is lazy, this are his rules</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Pedro Melo &lt;melo@simplicidade.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla" VERSION="4.300002" />' >> $(DISTNAME).ppd

@@ -20,6 +20,8 @@ xt/release/minimum-version.t
 xt/release/mojibake.t
 xt/release/no-tabs.t
 xt/release/pod-coverage.t
+xt/release/pod-linkcheck.t
+xt/release/pod-no404s.t
 xt/release/pod-syntax.t
 xt/release/test-version.t
 xt/release/unused-vars.t

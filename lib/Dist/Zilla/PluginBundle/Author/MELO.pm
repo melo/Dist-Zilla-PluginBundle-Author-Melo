@@ -1,7 +1,7 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
-# ABSTRACT: MELO is a lazy, this are his rules
-our $VERSION = '0.010'; # VERSION
+# ABSTRACT: MELO is lazy, this are his rules
+our $VERSION = '0.011'; # VERSION
 our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 
 use strict;
@@ -150,6 +150,10 @@ after configure => sub {
 
 
 method configure {
+
+  $ENV{SKIP_POD_LINKCHECK} = 1 unless exists $ENV{SKIP_POD_LINKCHECK};
+  $ENV{SKIP_POD_NO404S} = 1 unless exists $ENV{SKIP_POD_NO404S};
+
   $self->add_plugins(
 
     # provide version
@@ -247,7 +251,7 @@ method configure {
 
   ## Testing
   $self->add_plugins('ReportVersions::Tiny') if $self->test_report_versions;
-  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links;
+  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links and !$ENV{DZIL_FIRST_RELEASE};
 
   if ($spelling_tests) {
     $self->add_plugins('Test::PodSpelling');
@@ -359,13 +363,6 @@ perl:
   - "5.14"
   - "5.12"
   - "5.10"
-before_install:
-  - "git config --global github.user melo"
-  - "cpanm --quiet --notest Dist::Zilla"
-  - "cpanm --quiet --notest --installdeps Dist::Zilla::PluginBundle::Author::MELO"
-  - "cpanm --quiet --notest Dist::Zilla::PluginBundle::Author::MELO"
-install: "dzil authordeps | xargs cpanm --quiet --notest && dzil listdeps | xargs cpanm --quiet --notest"
-script: "dzil test && dzil xtest"
 EOF_TRAVIS_CFG
     }
   ];
@@ -386,11 +383,11 @@ cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 NAME
 
-Dist::Zilla::PluginBundle::Author::MELO - MELO is a lazy, this are his rules
+Dist::Zilla::PluginBundle::Author::MELO - MELO is lazy, this are his rules
 
 =head1 VERSION
 
-version 0.010
+version 0.011
 
 =head1 SYNOPSIS
 
@@ -406,7 +403,7 @@ I'm still working through all the kinks so don't expect nothing stable
 until this B<warning> disappears.
 
 This Bundle was forked from
-L<RWSTAUNER|Dist::Zilla::PluginBundle::Author::RWSTAUNER>.
+L<Dist::Zilla::PluginBundle::Author::RWSTAUNER>.
 
 =head1 RATIONALE
 
@@ -493,7 +490,7 @@ and then you can add it yourself:
     [MetaNoIndex]
     directory = one-dir
     directory = another-dir
-    
+
     [@Author::MELO]
     skip_plugins = MetaNoIndex
 
@@ -598,21 +595,27 @@ more useful ones to here.
 
 Enable to skip the release to CPAN as the final step of a C<< dzil release >> run.
 
+= DZIL_FIRST_RELEASE
+
+If true, it disables tests that will fail on a first release of a
+module. One example is L<Test::Pod::No404s>, because before the first
+release most of the links will not exist yet.
+
 = SKIP_POD_LINKCHECK
 
-If true, the L<Test::Pod::LinkCheck> module is not used, and the Pod
-links will not be checked.
+Set to false to activate the L<Test::Pod::LinkCheck> module.
 
-See also the configuration C<test_pod_links> to disable this check
-permanently.
+If not present or true, we skip it. There is no way at the moment to use
+extra attributes of L<Test::Pod::LinkCheck> (to disable the remote CPAN
+checks for example) via the current
+L<Dist::Zilla::Plugin::Test::Pod::LinkCheck>.
 
 = SKIP_POD_NO404S
 
-If true, the L<Test::Pod::No404s> module is not used, and any links on
-your Pod will not be checked to see if they really exist.
+Set to false to activate the L<Test::Pod::No404s> module.
 
-See also the configuration C<test_pod_links> to disable this check
-permanently.
+If not present or true, we skip it. We keep getting a "This shouldn't
+happen" exception inside L<Text::Wrap>.
 
 =head1 SEE ALSO
 
