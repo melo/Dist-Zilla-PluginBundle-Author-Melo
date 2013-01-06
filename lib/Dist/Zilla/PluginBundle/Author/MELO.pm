@@ -399,7 +399,7 @@ I'm still working through all the kinks so don't expect nothing stable
 until this B<warning> disappears.
 
 This Bundle was forked from
-L<RWSTAUNER|Dist::Zilla::PluginBundle::Author::RWSTAUNER>.
+L<Dist::Zilla::PluginBundle::Author::RWSTAUNER>.
 
 =head1 RATIONALE
 
