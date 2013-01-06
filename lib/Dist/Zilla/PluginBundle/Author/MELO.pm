@@ -152,6 +152,7 @@ after configure => sub {
 method configure {
 
   $ENV{SKIP_POD_LINKCHECK} = 1 unless exists $ENV{SKIP_POD_LINKCHECK};
+  $ENV{SKIP_POD_NO404S} = 1 unless exists $ENV{SKIP_POD_NO404S};
 
   $self->add_plugins(
 
@@ -611,11 +612,10 @@ L<Dist::Zilla::Plugin::Test::Pod::LinkCheck>.
 
 = SKIP_POD_NO404S
 
-If true, the L<Test::Pod::No404s> module is not used, and any links on
-your Pod will not be checked to see if they really exist.
+Set to false to activate the L<Test::Pod::No404s> module.
 
-See also the configuration C<test_pod_links> to disable this check
-permanently.
+If not present or true, we skip it. We keep getting a "This shouldn't
+happen" exception inside L<Text::Wrap>.
 
 =head1 SEE ALSO
 
