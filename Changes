@@ -1,9 +1,10 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
-0.011     2013-01-06T13:33:57Z
+0.011     2013-01-06T13:48:26Z
         * Generate a simpler .travis.yml
         * Make sure .travis.yml is not excluded by MANIFEST.SKIP
         * Add support for DZIL_FIRST_RELEASE ENV
+        * Test::Pod::LinkCheck is disable by default for now
 
 0.010     2012-09-05T17:37:47Z
         * Updated abstract to the real truth about this module

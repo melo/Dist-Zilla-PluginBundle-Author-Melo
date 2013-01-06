@@ -150,6 +150,9 @@ after configure => sub {
 
 
 method configure {
+
+  $ENV{SKIP_POD_LINKCHECK} = 1 unless exists $ENV{SKIP_POD_LINKCHECK};
+
   $self->add_plugins(
 
     # provide version
@@ -599,11 +602,12 @@ release most of the links will not exist yet.
 
 = SKIP_POD_LINKCHECK
 
-If true, the L<Test::Pod::LinkCheck> module is not used, and the Pod
-links will not be checked.
+Set to false to activate the L<Test::Pod::LinkCheck> module.
 
-See also the configuration C<test_pod_links> to disable this check
-permanently.
+If not present or true, we skip it. There is no way at the moment to use
+extra attributes of L<Test::Pod::LinkCheck> (to disable the remote CPAN
+checks for example) via the current
+L<Dist::Zilla::Plugin::Test::Pod::LinkCheck>.
 
 = SKIP_POD_NO404S
 
