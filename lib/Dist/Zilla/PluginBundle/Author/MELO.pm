@@ -574,6 +574,14 @@ more useful ones to here.
 
 Enable to skip the release to CPAN as the final step of a C<< dzil release >> run.
 
+
+= DZIL_FIRST_RELEASE
+
+If true, it disables tests that will fail on a first release of a
+module. One example is L<Test::Pod::No404s>, because before the first
+release most of the links will not exist yet.
+
+
 = SKIP_POD_LINKCHECK
 
 If true, the L<Test::Pod::LinkCheck> module is not used, and the Pod
