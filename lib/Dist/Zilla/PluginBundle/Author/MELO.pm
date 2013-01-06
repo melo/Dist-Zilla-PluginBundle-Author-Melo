@@ -247,7 +247,7 @@ method configure {
 
   ## Testing
   $self->add_plugins('ReportVersions::Tiny') if $self->test_report_versions;
-  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links and !$ENV{FIRST_RELEASE};
+  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links and !$ENV{DZIL_FIRST_RELEASE};
 
   if ($spelling_tests) {
     $self->add_plugins('Test::PodSpelling');
@@ -486,7 +486,7 @@ This bundle is roughly equivalent to:
   [GatherDir]             ; everything under top dir
   [PruneCruft]            ; default stuff to skip
   [ManifestSkip]          ; custom stuff to skip
-  ; use PruneFiles to specifically remove ^(dist.ini)$
+  ; use PruneFiles to specifically remove ^(di§st.ini)$
   ; use PruneFiles to specifically remove ^(README.pod)$ (just for github)
 
   ; munge files
