@@ -1,4 +1,5 @@
 .travis.yml
+Changes
 LICENSE
 MANIFEST
 MANIFEST.SKIP
@@ -6,7 +7,6 @@ META.json
 META.yml
 Makefile.PL
 README
-changes
 dist.ini
 lib/Dist/Zilla/PluginBundle/Author/MELO.pm
 lib/Pod/Weaver/PluginBundle/Author/MELO.pm
@@ -20,6 +20,8 @@ xt/release/minimum-version.t
 xt/release/mojibake.t
 xt/release/no-tabs.t
 xt/release/pod-coverage.t
+xt/release/pod-linkcheck.t
+xt/release/pod-no404s.t
 xt/release/pod-syntax.t
 xt/release/test-version.t
 xt/release/unused-vars.t

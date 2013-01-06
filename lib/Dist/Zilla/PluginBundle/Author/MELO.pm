@@ -247,7 +247,7 @@ method configure {
 
   ## Testing
   $self->add_plugins('ReportVersions::Tiny') if $self->test_report_versions;
-  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links and !$ENV{FIRST_RELEASE};
+  $self->add_plugins('Test::Pod::No404s')    if $self->test_pod_links and !$ENV{DZIL_FIRST_RELEASE};
 
   if ($spelling_tests) {
     $self->add_plugins('Test::PodSpelling');
@@ -590,6 +590,12 @@ more useful ones to here.
 = DZIL_FAKERELEASE
 
 Enable to skip the release to CPAN as the final step of a C<< dzil release >> run.
+
+= DZIL_FIRST_RELEASE
+
+If true, it disables tests that will fail on a first release of a
+module. One example is L<Test::Pod::No404s>, because before the first
+release most of the links will not exist yet.
 
 = SKIP_POD_LINKCHECK
 
