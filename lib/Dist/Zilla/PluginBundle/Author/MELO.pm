@@ -486,7 +486,7 @@ This bundle is roughly equivalent to:
   [GatherDir]             ; everything under top dir
   [PruneCruft]            ; default stuff to skip
   [ManifestSkip]          ; custom stuff to skip
-  ; use PruneFiles to specifically remove ^(di§st.ini)$
+  ; use PruneFiles to specifically remove ^(dist.ini)$
   ; use PruneFiles to specifically remove ^(README.pod)$ (just for github)
 
   ; munge files
