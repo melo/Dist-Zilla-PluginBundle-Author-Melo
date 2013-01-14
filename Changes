@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
-0.012     2013-01-14T17:38:48Z
+0.012     2013-01-14T17:39:54Z
 
 0.011     2013-01-06T15:49:13Z
         * Generate a simpler .travis.yml
