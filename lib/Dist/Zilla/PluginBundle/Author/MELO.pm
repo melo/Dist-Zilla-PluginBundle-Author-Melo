@@ -21,7 +21,6 @@ use Dist::Zilla::Plugin::CheckChangesHasContent 0.003 ();
 use Dist::Zilla::Plugin::CheckExtraTests 0.004        ();
 use Dist::Zilla::Plugin::Clean 0.02                   ();
 use Dist::Zilla::Plugin::Git::NextVersion ();
-use Dist::Zilla::Plugin::GithubMeta 0.26      ();
 use Dist::Zilla::Plugin::InstallRelease 0.007 ();
 use Dist::Zilla::Plugin::MetaNoIndex ();
 use Dist::Zilla::Plugin::MetaProvides::Package 1.12060501 ();
@@ -35,6 +34,7 @@ use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
 use Dist::Zilla::PluginBundle::Basic ();
 use Dist::Zilla::PluginBundle::Git 1.112510       ();
+use Dist::Zilla::PluginBundle::GitHub 0.30       ();
 use Dist::Zilla::PluginBundle::TestingMania 0.014 ();
 use Pod::Weaver::PluginBundle::Author::MELO ();
 
@@ -154,6 +154,8 @@ method configure {
   $ENV{SKIP_POD_LINKCHECK} = 1 unless exists $ENV{SKIP_POD_LINKCHECK};
   $ENV{SKIP_POD_NO404S} = 1 unless exists $ENV{SKIP_POD_NO404S};
 
+  $self->add_bundle('GitHub' => { metacpan => 1 });
+
   $self->add_plugins(
 
     # provide version
@@ -198,16 +200,6 @@ method configure {
       License
       Readme
       ),
-
-    # metadata
-    # FIXME: make sure we always generate the Github issues URL and skip
-    # the mailto: -- I prefer to manage my issues where I have my code,
-    # at Github
-    'Bugtracker',
-
-    # FIXME: patch Repository to complain if no repository is found
-    'Repository',
-    'GithubMeta',
   );
 
   $self->add_plugins([AutoPrereqs => $self->config_slice({ skip_prereqs => 'skip' })])
