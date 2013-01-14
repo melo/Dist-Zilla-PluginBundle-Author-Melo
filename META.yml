@@ -86,6 +86,14 @@ x_Dist_Zilla:
       name: RuntimeRequires
       version: 4.300028
     -
+      class: Dist::Zilla::Plugin::GitHub::Meta
+      name: '@Author::MELO/@GitHub/GitHub::Meta'
+      version: 0.30
+    -
+      class: Dist::Zilla::Plugin::GitHub::Update
+      name: '@Author::MELO/@GitHub/GitHub::Update'
+      version: 0.30
+    -
       class: Dist::Zilla::Plugin::Git::NextVersion
       name: '@Author::MELO/Git::NextVersion'
       version: 2.006
@@ -137,14 +145,6 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Readme
       name: '@Author::MELO/Readme'
       version: 4.300028
-    -
-      class: Dist::Zilla::Plugin::GitHub::Meta
-      name: '@Author::MELO/@GitHub/GitHub::Meta'
-      version: 0.30
-    -
-      class: Dist::Zilla::Plugin::GitHub::Update
-      name: '@Author::MELO/@GitHub/GitHub::Update'
-      version: 0.30
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@Author::MELO/AutoPrereqs'

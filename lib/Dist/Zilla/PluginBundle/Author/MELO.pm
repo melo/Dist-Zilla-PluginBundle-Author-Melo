@@ -154,6 +154,8 @@ method configure {
   $ENV{SKIP_POD_LINKCHECK} = 1 unless exists $ENV{SKIP_POD_LINKCHECK};
   $ENV{SKIP_POD_NO404S} = 1 unless exists $ENV{SKIP_POD_NO404S};
 
+  $self->add_bundle('GitHub' => { metacpan => 1 });
+
   $self->add_plugins(
 
     # provide version
@@ -199,8 +201,6 @@ method configure {
       Readme
       ),
   );
-
-  $self->add_bundle('GitHub' => { metacpan => 1 });
 
   $self->add_plugins([AutoPrereqs => $self->config_slice({ skip_prereqs => 'skip' })])
     if $self->auto_prereqs;
