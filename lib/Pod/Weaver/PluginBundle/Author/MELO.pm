@@ -2,7 +2,7 @@ package Pod::Weaver::PluginBundle::Author::MELO;
 
 BEGIN {
 
-  our $VERSION = '0.011'; # VERSION
+  our $VERSION = '0.012'; # VERSION
   our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 }
 
@@ -92,7 +92,7 @@ sub mvp_bundle_config {
         repository_link    => 'both',
 
         ## Pick up github issues from dzil metadata as we change modules to it
-        bugs => 'metadata',
+        # bugs => 'metadata',
 
         websites => [qw(testers testmatrix deps ratings)],
       }
@@ -134,7 +134,7 @@ Pod::Weaver::PluginBundle::Author::MELO - MELO's Pod::Weaver config
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 SYNOPSIS
 
