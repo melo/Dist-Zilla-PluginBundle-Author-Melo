@@ -91,8 +91,8 @@ sub mvp_bundle_config {
         repository_content => '',
         repository_link    => 'both',
 
-        ## Pick up github issues from dzil metadata as we change modules to it
-        # bugs => 'metadata',
+        bugs => 'metadata',
+        bugs_content => 'Please report any bugs or feature requests through the web interface at {WEB}. You will be automatically notified of any progress on the request by the system.',
 
         websites => [qw(testers testmatrix deps ratings)],
       }

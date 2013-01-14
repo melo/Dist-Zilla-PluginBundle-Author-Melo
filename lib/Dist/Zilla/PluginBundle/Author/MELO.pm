@@ -687,9 +687,7 @@ You can email the author of this module at C<MELO at cpan.org> asking for help w
 
 =head2 Bugs / Feature Requests
 
-Please report any bugs or feature requests by email to C<bug-dist-zilla-pluginbundle-author-melo at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Dist-Zilla-PluginBundle-Author-MELO>. You will be automatically notified of any
-progress on the request by the system.
+Please report any bugs or feature requests through the web interface at L<https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo/issues>. You will be automatically notified of any progress on the request by the system.
 
 =head2 Source Code
 
