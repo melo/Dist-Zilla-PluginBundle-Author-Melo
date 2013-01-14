@@ -34,6 +34,7 @@ use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
 use Dist::Zilla::PluginBundle::Basic ();
 use Dist::Zilla::PluginBundle::Git 1.112510       ();
+use Dist::Zilla::PluginBundle::GitHub 0.30       ();
 use Dist::Zilla::PluginBundle::TestingMania 0.014 ();
 use Pod::Weaver::PluginBundle::Author::MELO ();
 
@@ -649,6 +650,14 @@ in addition to those websites please use your favorite search engine to discover
 
 =item *
 
+MetaCPAN
+
+A modern, open-source CPAN search engine, useful to view POD in HTML format.
+
+L<http://metacpan.org/release/Dist-Zilla-PluginBundle-Author-MELO>
+
+=item *
+
 CPAN Testers
 
 The CPAN Testers is a network of smokers who run automated tests on uploaded CPAN distributions.
@@ -691,6 +700,9 @@ Please report any bugs or feature requests through the web interface at L<https:
 
 =head2 Source Code
 
+The code is open to the world, and available for you to hack on. Please feel free to browse it and play
+with it, or whatever. If you want to contribute patches, please send me a diff or prod me to pull
+from your repository :)
 
 L<https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo>
 

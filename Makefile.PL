@@ -41,6 +41,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::Repository" => "0.18",
     "Dist::Zilla::Plugin::Test::Pod::No404s" => "1.001",
     "Dist::Zilla::PluginBundle::Git" => "1.112510",
+    "Dist::Zilla::PluginBundle::GitHub" => "0.30",
     "Dist::Zilla::PluginBundle::TestingMania" => "0.014",
     "Dist::Zilla::Role::PluginBundle::Config::Slicer" => 0,
     "List::Util" => 0,

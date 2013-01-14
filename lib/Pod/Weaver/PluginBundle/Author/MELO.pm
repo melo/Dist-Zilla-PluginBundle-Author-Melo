@@ -86,15 +86,14 @@ sub mvp_bundle_config {
     # include Support section with various cpan links and github repo
     [ 'Support',
       _exp('Support'),
-      { email => 'MELO',
+      { email => 'melo',
 
-        repository_content => '',
         repository_link    => 'both',
 
         bugs => 'metadata',
         bugs_content => 'Please report any bugs or feature requests through the web interface at {WEB}. You will be automatically notified of any progress on the request by the system.',
 
-        websites => [qw(testers testmatrix deps ratings)],
+        websites => [qw(metacpan testers testmatrix deps ratings)],
       }
     ],
 
