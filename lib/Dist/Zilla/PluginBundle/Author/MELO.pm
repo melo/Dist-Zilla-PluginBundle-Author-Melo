@@ -67,7 +67,7 @@ method _default_attributes {
     placeholder_comments => [Bool => 1],
     releaser             => [Str  => 'UploadToCPAN'],
     skip_plugins         => [Str  => ''],
-    skip_prereqs         => [Str  => ''],
+    skip_prereqs         => [Str  => '^t::'],
     weaver_config        => [Str  => $self->_bundle_name],
     test_pod_links       => [Bool => 1],
     test_perl_critic     => [Bool => 0],
@@ -442,7 +442,7 @@ Possible options and their default values:
     placeholder_comments = 1 ; use '# VERSION' and '# AUTHORITY' comments
     releaser             = UploadToCPAN
     skip_plugins         =    ; default empty; a regexp of plugin names to exclude
-    skip_prereqs         =    ; default empty; corresponds to AutoPrereqs.skip
+    skip_prereqs         =  '^t::'  ; ignores t::* packages; corresponds to AutoPrereqs.skip
     weaver_config        = @Author::MELO
     test_pod_links       = 1  ; Pod::Links and Pod::No404s enabled
     test_perl_critic     = 0  ; No Perl::Critic by default
