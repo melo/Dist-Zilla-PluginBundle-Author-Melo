@@ -9,3 +9,5 @@ before_install:
   - "cpanm --quiet --notest Dist::Zilla"
 install: "dzil authordeps | xargs cpanm --quiet --notest && dzil listdeps | xargs cpanm --quiet --notest"
 script: "dzil test && dzil xtest"
+after_failure:
+  - "cat $HOME/.cpanm/build.log"
