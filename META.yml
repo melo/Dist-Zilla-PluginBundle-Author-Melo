@@ -30,10 +30,10 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::Author::MELO:
     file: lib/Dist/Zilla/PluginBundle/Author/MELO.pm
-    version: 0.011
+    version: 0.012
   Pod::Weaver::PluginBundle::Author::MELO:
     file: lib/Pod/Weaver/PluginBundle/Author/MELO.pm
-    version: 0.011
+    version: 0.012
 requires:
   Dist::Zilla: 4.300002
   Dist::Zilla::Plugin::Authority: 1.005
@@ -43,7 +43,6 @@ requires:
   Dist::Zilla::Plugin::CheckExtraTests: 0.004
   Dist::Zilla::Plugin::Clean: 0.02
   Dist::Zilla::Plugin::Git::NextVersion: 0
-  Dist::Zilla::Plugin::GithubMeta: 0.26
   Dist::Zilla::Plugin::InstallRelease: 0.007
   Dist::Zilla::Plugin::MetaProvides::Package: 1.12060501
   Dist::Zilla::Plugin::MinimumPerl: 1.003
@@ -54,6 +53,7 @@ requires:
   Dist::Zilla::Plugin::Repository: 0.18
   Dist::Zilla::Plugin::Test::Pod::No404s: 1.001
   Dist::Zilla::PluginBundle::Git: 1.112510
+  Dist::Zilla::PluginBundle::GitHub: 0.30
   Dist::Zilla::PluginBundle::TestingMania: 0.014
   Dist::Zilla::Role::PluginBundle::Config::Slicer: 0
   List::Util: 0
@@ -69,10 +69,10 @@ requires:
   Test::CPAN::Meta::JSON: 0
   perl: 5.006
 resources:
-  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-Author-MELO
-  homepage: https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo
-  repository: https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo.git
-version: 0.011
+  bugtracker: https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo/issues
+  homepage: https://metacpan.org/release/Dist-Zilla-PluginBundle-Author-Melo
+  repository: git://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo.git
+version: 0.012
 x_Dist_Zilla:
   perl:
     version: 5.014002
@@ -86,9 +86,17 @@ x_Dist_Zilla:
       name: RuntimeRequires
       version: 4.300028
     -
+      class: Dist::Zilla::Plugin::GitHub::Meta
+      name: '@Author::MELO/@GitHub/GitHub::Meta'
+      version: 0.30
+    -
+      class: Dist::Zilla::Plugin::GitHub::Update
+      name: '@Author::MELO/@GitHub/GitHub::Update'
+      version: 0.30
+    -
       class: Dist::Zilla::Plugin::Git::NextVersion
       name: '@Author::MELO/Git::NextVersion'
-      version: 2.005
+      version: 2.006
     -
       class: Dist::Zilla::Plugin::GenerateFile
       name: '@Author::MELO/GenerateManifestSkip'
@@ -137,18 +145,6 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Readme
       name: '@Author::MELO/Readme'
       version: 4.300028
-    -
-      class: Dist::Zilla::Plugin::Bugtracker
-      name: '@Author::MELO/Bugtracker'
-      version: 1.111080
-    -
-      class: Dist::Zilla::Plugin::Repository
-      name: '@Author::MELO/Repository'
-      version: 0.19
-    -
-      class: Dist::Zilla::Plugin::GithubMeta
-      name: '@Author::MELO/GithubMeta'
-      version: 0.28
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@Author::MELO/AutoPrereqs'
@@ -284,23 +280,23 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::CommitBuild
       name: '@Author::MELO/Git::CommitBuild'
-      version: 2.005
+      version: 2.006
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@Author::MELO/@Git/Check'
-      version: 2.005
+      version: 2.006
     -
       class: Dist::Zilla::Plugin::Git::Commit
       name: '@Author::MELO/@Git/Commit'
-      version: 2.005
+      version: 2.006
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@Author::MELO/@Git/Tag'
-      version: 2.005
+      version: 2.006
     -
       class: Dist::Zilla::Plugin::Git::Push
       name: '@Author::MELO/@Git/Push'
-      version: 2.005
+      version: 2.006
     -
       class: Dist::Zilla::Plugin::InstallRelease
       name: '@Author::MELO/InstallRelease'

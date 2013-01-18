@@ -1,7 +1,7 @@
 package Dist::Zilla::PluginBundle::Author::MELO;
 
 # ABSTRACT: MELO is lazy, this are his rules
-our $VERSION = '0.011'; # VERSION
+our $VERSION = '0.012'; # VERSION
 our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 
 use strict;
@@ -21,7 +21,6 @@ use Dist::Zilla::Plugin::CheckChangesHasContent 0.003 ();
 use Dist::Zilla::Plugin::CheckExtraTests 0.004        ();
 use Dist::Zilla::Plugin::Clean 0.02                   ();
 use Dist::Zilla::Plugin::Git::NextVersion ();
-use Dist::Zilla::Plugin::GithubMeta 0.26      ();
 use Dist::Zilla::Plugin::InstallRelease 0.007 ();
 use Dist::Zilla::Plugin::MetaNoIndex ();
 use Dist::Zilla::Plugin::MetaProvides::Package 1.12060501 ();
@@ -35,6 +34,7 @@ use Dist::Zilla::Plugin::Repository 0.18           ();
 use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
 use Dist::Zilla::PluginBundle::Basic ();
 use Dist::Zilla::PluginBundle::Git 1.112510       ();
+use Dist::Zilla::PluginBundle::GitHub 0.30       ();
 use Dist::Zilla::PluginBundle::TestingMania 0.014 ();
 use Pod::Weaver::PluginBundle::Author::MELO ();
 
@@ -67,7 +67,7 @@ method _default_attributes {
     placeholder_comments => [Bool => 1],
     releaser             => [Str  => 'UploadToCPAN'],
     skip_plugins         => [Str  => ''],
-    skip_prereqs         => [Str  => ''],
+    skip_prereqs         => [Str  => '^t::'],
     weaver_config        => [Str  => $self->_bundle_name],
     test_pod_links       => [Bool => 1],
     test_perl_critic     => [Bool => 0],
@@ -154,6 +154,8 @@ method configure {
   $ENV{SKIP_POD_LINKCHECK} = 1 unless exists $ENV{SKIP_POD_LINKCHECK};
   $ENV{SKIP_POD_NO404S} = 1 unless exists $ENV{SKIP_POD_NO404S};
 
+  $self->add_bundle('GitHub' => { metacpan => 1 });
+
   $self->add_plugins(
 
     # provide version
@@ -198,16 +200,6 @@ method configure {
       License
       Readme
       ),
-
-    # metadata
-    # FIXME: make sure we always generate the Github issues URL and skip
-    # the mailto: -- I prefer to manage my issues where I have my code,
-    # at Github
-    'Bugtracker',
-
-    # FIXME: patch Repository to complain if no repository is found
-    'Repository',
-    'GithubMeta',
   );
 
   $self->add_plugins([AutoPrereqs => $self->config_slice({ skip_prereqs => 'skip' })])
@@ -387,7 +379,7 @@ Dist::Zilla::PluginBundle::Author::MELO - MELO is lazy, this are his rules
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 SYNOPSIS
 
@@ -450,7 +442,7 @@ Possible options and their default values:
     placeholder_comments = 1 ; use '# VERSION' and '# AUTHORITY' comments
     releaser             = UploadToCPAN
     skip_plugins         =    ; default empty; a regexp of plugin names to exclude
-    skip_prereqs         =    ; default empty; corresponds to AutoPrereqs.skip
+    skip_prereqs         =  '^t::'  ; ignores t::* packages; corresponds to AutoPrereqs.skip
     weaver_config        = @Author::MELO
     test_pod_links       = 1  ; Pod::Links and Pod::No404s enabled
     test_perl_critic     = 0  ; No Perl::Critic by default
@@ -658,6 +650,14 @@ in addition to those websites please use your favorite search engine to discover
 
 =item *
 
+MetaCPAN
+
+A modern, open-source CPAN search engine, useful to view POD in HTML format.
+
+L<http://metacpan.org/release/Dist-Zilla-PluginBundle-Author-MELO>
+
+=item *
+
 CPAN Testers
 
 The CPAN Testers is a network of smokers who run automated tests on uploaded CPAN distributions.
@@ -696,16 +696,17 @@ You can email the author of this module at C<MELO at cpan.org> asking for help w
 
 =head2 Bugs / Feature Requests
 
-Please report any bugs or feature requests by email to C<bug-dist-zilla-pluginbundle-author-melo at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-Author-MELO>. You will be automatically notified of any
-progress on the request by the system.
+Please report any bugs or feature requests through the web interface at L<https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo/issues>. You will be automatically notified of any progress on the request by the system.
 
 =head2 Source Code
 
+The code is open to the world, and available for you to hack on. Please feel free to browse it and play
+with it, or whatever. If you want to contribute patches, please send me a diff or prod me to pull
+from your repository :)
 
 L<https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo>
 
-  git clone https://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo.git
+  git clone git://github.com/melo/Dist-Zilla-PluginBundle-Author-Melo.git
 
 =head1 AUTHOR
 

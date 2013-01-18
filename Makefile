@@ -19,9 +19,9 @@
 #     EXE_FILES => []
 #     LICENSE => q[artistic_2]
 #     NAME => q[Dist::Zilla::PluginBundle::Author::MELO]
-#     PREREQ_PM => { Dist::Zilla::Plugin::MinimumPerl=>q[1.003], Dist::Zilla::PluginBundle::TestingMania=>q[0.014], Pod::Elemental=>q[0.102360], Pod::Weaver::Plugin::WikiDoc=>q[0.093002], Dist::Zilla::Plugin::MetaProvides::Package=>q[1.12060501], Dist::Zilla::Plugin::GithubMeta=>q[0.26], List::Util=>q[0], Dist::Zilla::Plugin::PrereqsClean=>q[0], Dist::Zilla::Plugin::ReportVersions::Tiny=>q[1.03], Pod::Elemental::Transformer::List=>q[0], Dist::Zilla::Plugin::Repository=>q[0.18], Dist::Zilla::Plugin::Bugtracker=>q[1.111080], Dist::Zilla::Plugin::Git::NextVersion=>q[0], Test::More=>q[0.98], Dist::Zilla::Plugin::CheckExtraTests=>q[0.004], Test::CPAN::Meta::JSON=>q[0], Pod::Weaver::Section::Support=>q[1.001], File::Temp=>q[0], Dist::Zilla::Plugin::Test::Pod::No404s=>q[1.001], Dist::Zilla::Plugin::Clean=>q[0.02], Dist::Zilla::Plugin::PodWeaver=>q[0], Method::Signatures=>q[20111020], Dist::Zilla::Plugin::OurPkgVersion=>q[0], Pod::Weaver::Plugin::StopWords=>q[1.001005], Pod::Weaver=>q[3.101633], Dist::Zilla::Plugin::CheckChangesHasContent=>q[0.003], Moose=>q[1.01], Dist::Zilla::Plugin::Bootstrap::lib=>q[0.01023600], Dist::Zilla::Plugin::Authority=>q[1.005], Dist::Zilla::Plugin::InstallRelease=>q[0.007], Dist::Zilla=>q[4.300002], Dist::Zilla::PluginBundle::Git=>q[1.112510], Dist::Zilla::Role::PluginBundle::Config::Slicer=>q[0], Pod::Weaver::Plugin::Encoding=>q[0] }
+#     PREREQ_PM => { Dist::Zilla::Plugin::MinimumPerl=>q[1.003], Dist::Zilla::PluginBundle::TestingMania=>q[0.014], Pod::Elemental=>q[0.102360], Pod::Weaver::Plugin::WikiDoc=>q[0.093002], Dist::Zilla::Plugin::MetaProvides::Package=>q[1.12060501], List::Util=>q[0], Dist::Zilla::Plugin::PrereqsClean=>q[0], Dist::Zilla::Plugin::ReportVersions::Tiny=>q[1.03], Pod::Elemental::Transformer::List=>q[0], Dist::Zilla::Plugin::Bugtracker=>q[1.111080], Dist::Zilla::Plugin::Repository=>q[0.18], Dist::Zilla::Plugin::Git::NextVersion=>q[0], Test::More=>q[0.98], Dist::Zilla::Plugin::CheckExtraTests=>q[0.004], Test::CPAN::Meta::JSON=>q[0], Pod::Weaver::Section::Support=>q[1.001], File::Temp=>q[0], Dist::Zilla::Plugin::Test::Pod::No404s=>q[1.001], Dist::Zilla::Plugin::Clean=>q[0.02], Dist::Zilla::Plugin::PodWeaver=>q[0], Method::Signatures=>q[20111020], Dist::Zilla::Plugin::OurPkgVersion=>q[0], Pod::Weaver::Plugin::StopWords=>q[1.001005], Pod::Weaver=>q[3.101633], Dist::Zilla::Plugin::CheckChangesHasContent=>q[0.003], Moose=>q[1.01], Dist::Zilla::Plugin::Bootstrap::lib=>q[0.01023600], Dist::Zilla::Plugin::Authority=>q[1.005], Dist::Zilla::PluginBundle::GitHub=>q[0.30], Dist::Zilla=>q[4.300002], Dist::Zilla::Plugin::InstallRelease=>q[0.007], Dist::Zilla::PluginBundle::Git=>q[1.112510], Dist::Zilla::Role::PluginBundle::Config::Slicer=>q[0], Pod::Weaver::Plugin::Encoding=>q[0] }
 #     TEST_REQUIRES => {  }
-#     VERSION => q[0.011]
+#     VERSION => q[0.012]
 #     test => { TESTS=>q[t/*.t] }
 
 # --- MakeMaker post_initialize section:
@@ -61,11 +61,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Dist::Zilla::PluginBundle::Author::MELO
 NAME_SYM = Dist_Zilla_PluginBundle_Author_MELO
-VERSION = 0.011
+VERSION = 0.012
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_011
+VERSION_SYM = 0_012
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.011
+XS_VERSION = 0.012
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -263,7 +263,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Dist-Zilla-PluginBundle-Author-MELO
-DISTVNAME = Dist-Zilla-PluginBundle-Author-MELO-0.011
+DISTVNAME = Dist-Zilla-PluginBundle-Author-MELO-0.012
 
 
 # --- MakeMaker macro section:
@@ -514,7 +514,6 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::CheckExtraTests: 0.004' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::Clean: 0.02' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::Git::NextVersion: 0' >> META_new.yml
-	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::GithubMeta: 0.26' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::InstallRelease: 0.007' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::MetaProvides::Package: 1.12060501' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::MinimumPerl: 1.003' >> META_new.yml
@@ -525,6 +524,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::Repository: 0.18' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Plugin::Test::Pod::No404s: 1.001' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::PluginBundle::Git: 1.112510' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Dist::Zilla::PluginBundle::GitHub: 0.30' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::PluginBundle::TestingMania: 0.014' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Dist::Zilla::Role::PluginBundle::Config::Slicer: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  List::Util: 0' >> META_new.yml
@@ -538,7 +538,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '  Pod::Weaver::Plugin::WikiDoc: 0.093002' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Pod::Weaver::Section::Support: 1.001' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Test::CPAN::Meta::JSON: 0' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: 0.011' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: 0.012' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
@@ -584,7 +584,6 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::CheckExtraTests" : "0.004",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::Clean" : "0.02",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::Git::NextVersion" : "0",' >> META_new.json
-	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::GithubMeta" : "0.26",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::InstallRelease" : "0.007",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::MetaProvides::Package" : "1.12060501",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::MinimumPerl" : "1.003",' >> META_new.json
@@ -595,6 +594,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::Repository" : "0.18",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Plugin::Test::Pod::No404s" : "1.001",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::PluginBundle::Git" : "1.112510",' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Dist::Zilla::PluginBundle::GitHub" : "0.30",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::PluginBundle::TestingMania" : "0.014",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Dist::Zilla::Role::PluginBundle::Config::Slicer" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "List::Util" : "0",' >> META_new.json
@@ -612,7 +612,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
 	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.011"' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "0.012"' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
@@ -920,7 +920,6 @@ ppd :
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::CheckExtraTests" VERSION="0.004" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::Clean" VERSION="0.02" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::Git::NextVersion" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::GithubMeta" VERSION="0.26" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::InstallRelease" VERSION="0.007" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::MetaProvides::Package" VERSION="1.12060501" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::MinimumPerl" VERSION="1.003" />' >> $(DISTNAME).ppd
@@ -931,6 +930,7 @@ ppd :
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::Repository" VERSION="0.18" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Plugin::Test::Pod::No404s" VERSION="1.001" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::PluginBundle::Git" VERSION="1.11251" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::PluginBundle::GitHub" VERSION="0.3" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::PluginBundle::TestingMania" VERSION="0.014" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Dist::Zilla::Role::PluginBundle::Config::Slicer" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="List::Util" />' >> $(DISTNAME).ppd

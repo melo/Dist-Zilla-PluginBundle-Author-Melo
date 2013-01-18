@@ -1,5 +1,11 @@
 Revision history for Dist-Zilla-PluginBundle-Author-MELO
 
+0.012     2013-01-18T11:29:04Z
+        * New default for skip_prereqs: '^t::'
+        * Tweak SUPPORT section of our Pod sections
+        * Switch part of our Metadata collection to the GitHub PluginBundle
+        * bug tracker set to Github issues by default now
+
 0.011     2013-01-06T15:49:13Z
         * Generate a simpler .travis.yml
         * Make sure .travis.yml is not excluded by MANIFEST.SKIP

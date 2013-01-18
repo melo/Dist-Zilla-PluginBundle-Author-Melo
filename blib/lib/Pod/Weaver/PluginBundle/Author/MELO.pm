@@ -2,7 +2,7 @@ package Pod::Weaver::PluginBundle::Author::MELO;
 
 BEGIN {
 
-  our $VERSION = '0.011'; # VERSION
+  our $VERSION = '0.012'; # VERSION
   our $AUTHORITY = 'cpan:MELO'; # AUTHORITY
 }
 
@@ -86,15 +86,14 @@ sub mvp_bundle_config {
     # include Support section with various cpan links and github repo
     [ 'Support',
       _exp('Support'),
-      { email => 'MELO',
+      { email => 'melo',
 
-        repository_content => '',
         repository_link    => 'both',
 
-        ## Pick up github issues from dzil metadata as we change modules to it
         bugs => 'metadata',
+        bugs_content => 'Please report any bugs or feature requests through the web interface at {WEB}. You will be automatically notified of any progress on the request by the system.',
 
-        websites => [qw(testers testmatrix deps ratings)],
+        websites => [qw(metacpan testers testmatrix deps ratings)],
       }
     ],
 
@@ -134,7 +133,7 @@ Pod::Weaver::PluginBundle::Author::MELO - MELO's Pod::Weaver config
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 SYNOPSIS
 
