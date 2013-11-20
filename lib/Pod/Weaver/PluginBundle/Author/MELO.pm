@@ -10,7 +10,7 @@ BEGIN {
 
 use strict;
 use warnings;
-use Pod::Weaver 3.101633 ();
+use Pod::Weaver 4.000 ();
 use Pod::Weaver::PluginBundle::Default ();
 use Pod::Weaver::Plugin::StopWords 1.001005 ();
 use Pod::Weaver::Plugin::Transformer ();
@@ -44,7 +44,7 @@ sub mvp_bundle_config {
   push @plugins, (
 
     # plugin
-    _plain('-Encoding'),
+    _plain('-SingleEncoding'),
     _plain('-WikiDoc'),
 
     # default
@@ -158,7 +158,7 @@ with the following additions:
 
 It is roughly equivalent to:
 
-  [Encoding]                ; prepend '=encoding utf-8' automatically
+  [SingleEncoding]          ; prepend '=encoding UTF-8' automatically
   [WikiDoc]                 ; transform wikidoc sections to POD
   [@CorePrep]               ; [@Default]
 
