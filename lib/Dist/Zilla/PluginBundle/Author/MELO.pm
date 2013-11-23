@@ -35,7 +35,7 @@ use Dist::Zilla::Plugin::Test::Pod::No404s 1.001   ();
 use Dist::Zilla::PluginBundle::Basic ();
 use Dist::Zilla::PluginBundle::Git 1.112510       ();
 use Dist::Zilla::PluginBundle::GitHub 0.30       ();
-use Dist::Zilla::PluginBundle::TestingMania 0.014 ();
+use Dist::Zilla::PluginBundle::TestingMania 0.021 ();
 use Pod::Weaver::PluginBundle::Author::MELO ();
 
 use List::Util qw(first);
